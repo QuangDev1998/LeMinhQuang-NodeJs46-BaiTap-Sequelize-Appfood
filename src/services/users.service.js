@@ -4,12 +4,12 @@ import { BadRequestException } from "../common/helpers/error.helper.js";
 
 const usersService = {
   usersList: async (req) => {
-    const usersNe = await models.user.findAll({ raw: true });
+    const usersNe = await models.users.findAll({ raw: true });
     return usersNe;
   },
   userLikedList: async (req) => {
     let { user_id } = req.body;
-    const findNameUser = await models.user.findOne({
+    const findNameUser = await models.users.findOne({
       raw: true,
       where: {
         user_id,
@@ -42,7 +42,7 @@ const usersService = {
   },
   userRating: async (req) => {
     const { user_id } = req.body;
-    const userName = await models.user.findOne({
+    const userName = await models.users.findOne({
       where: {
         user_id,
       },
@@ -79,7 +79,7 @@ const usersService = {
   userOrder: async (req) => {
     let { user_id, food_id } = req.body;
 
-    let userExist = await models.user.findOne({
+    let userExist = await models.users.findOne({
       where: {
         user_id,
       },
