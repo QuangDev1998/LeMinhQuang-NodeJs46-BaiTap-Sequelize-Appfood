@@ -1,4 +1,4 @@
-import { responeError } from "./respone.helper.js";
+import { responeError } from "./resposone.helper.js";
 
 export const handleError = (err, req, res, next) => {
   const resData = responeError(err.message, err.code, err.stack);

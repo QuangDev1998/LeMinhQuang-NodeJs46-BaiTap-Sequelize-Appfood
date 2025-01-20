@@ -1,15 +1,17 @@
 import express from "express";
-import foodsRouter from "./food.router.js";
-import usersRouter from "./user.router.js";
-import restaurantRouter from "./restaurant.router.js";
+
+import likeResRouter from "./likeRes.router.js";
+import rateResRouter from "./rateRestaurant.router.js";
+import orderRouter from "./order.router.js";
+
 const rootRouter = express.Router();
 
-rootRouter.get("/", (request, response, next) => {
-  response.json("ok");
+rootRouter.get(`/`, (request, response, next) => {
+  response.json(`ok`);
 });
 
-rootRouter.use("/foods", foodsRouter);
-rootRouter.use("/users", usersRouter);
-rootRouter.use("/restaurants", restaurantRouter);
+rootRouter.use(`/ratings`, rateResRouter);
+rootRouter.use(`/likeres`, likeResRouter);
+rootRouter.use(`/orders`, orderRouter);
 
 export default rootRouter;
